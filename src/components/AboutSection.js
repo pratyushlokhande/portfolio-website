@@ -1,27 +1,35 @@
 import React from "react";
 
+// Import Styled Component
+import { About, Description, Hide, Image } from "../styles";
+
 const AboutSection = () => {
   return (
-    <div className="about">
-      <div className="description">
+    <About>
+      <Description>
         <div className="title">
-          <div className="hide">
+          <Hide>
             <h2>We work to make</h2>
-          </div>
-          <div className="hide">
+          </Hide>
+          <Hide>
             <h2>
               your <span>dreams</span> come
             </h2>
-          </div>
-          <div className="hide">
+          </Hide>
+          <Hide>
             <h2>true</h2>
-          </div>
+          </Hide>
         </div>
-      </div>
-      <div className="image">
-        <img src="//unsplash.it/720" alt="homeImage" />
-      </div>
-    </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+          eius officiis harum dolorem sequi ipsa.
+        </p>
+        <button>Contact Us</button>
+      </Description>
+      <Image>
+        <img src="//unsplash.it/360/480" alt="homeImage" />
+      </Image>
+    </About>
   );
 };
 
