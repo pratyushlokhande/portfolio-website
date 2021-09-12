@@ -2,6 +2,10 @@ import React from "react";
 
 // Import Styled Component
 import { About, Description, Hide, Image } from "../styles";
+import Wave from "./Wave";
+// Framer Motion
+import { motion } from "framer-motion";
+import { titleAnim, fade, photoAnim } from "../animation";
 
 const AboutSection = () => {
   return (
@@ -9,26 +13,31 @@ const AboutSection = () => {
       <Description>
         <div className="title">
           <Hide>
-            <h2>We work to make</h2>
+            <motion.h2 variants={titleAnim}>We work to make</motion.h2>
           </Hide>
           <Hide>
-            <h2>
+            <motion.h2 variants={titleAnim}>
               your <span>dreams</span> come
-            </h2>
+            </motion.h2>
           </Hide>
           <Hide>
-            <h2>true</h2>
+            <motion.h2 variants={titleAnim}>true</motion.h2>
           </Hide>
         </div>
-        <p>
+        <motion.p variants={fade}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
           eius officiis harum dolorem sequi ipsa.
-        </p>
-        <button>Contact Us</button>
+        </motion.p>
+        <motion.button variants={fade}>Contact Us</motion.button>
       </Description>
       <Image>
-        <img src="//unsplash.it/360/480" alt="homeImage" />
+        <motion.img
+          variants={photoAnim}
+          src="//unsplash.it/360/480"
+          alt="homeImage"
+        />
       </Image>
+      <Wave />
     </About>
   );
 };

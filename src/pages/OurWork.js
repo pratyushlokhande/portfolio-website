@@ -1,15 +1,43 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+// Animations
+import { motion } from "framer-motion";
+import {
+  pageAnimation,
+  fade,
+  photoAnim,
+  lineAnim,
+  slider,
+  sliderContainer,
+} from "../animation";
 
 function OurWork() {
   return (
-    <Work>
+    <Work
+      exit="exit"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      style={{ background: "#fff" }}
+    >
+      <motion.div variants={sliderContainer}>
+        <Frame1 variants={slider}></Frame1>
+        <Frame2 variants={slider}></Frame2>
+        <Frame3 variants={slider}></Frame3>
+        <Frame4 variants={slider}></Frame4>
+      </motion.div>
       <Movie>
-        <h2>The Athelete</h2>
-        <div className="line"></div>
+        <motion.h2 variants={fade}>The Athelete</motion.h2>
+        <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/work/the-athlete">
-          <img src="//unsplash.it/720/480" alt="" />
+          <Hide>
+            <motion.img
+              variants={photoAnim}
+              src="//unsplash.it/720/480"
+              alt=""
+            />
+          </Hide>
         </Link>
       </Movie>
 
@@ -25,14 +53,16 @@ function OurWork() {
         <h2>The Phoneix</h2>
         <div className="line"></div>
         <Link to="/work/good-times">
-          <img src="//unsplash.it/720/482" alt="" />
+          <Hide>
+            <img src="//unsplash.it/720/482" alt="" />
+          </Hide>
         </Link>
       </Movie>
     </Work>
   );
 }
 
-const Work = styled.div`
+const Work = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem 10rem;
@@ -47,7 +77,7 @@ const Movie = styled.div`
 
   .line {
     height: 0.5rem;
-    background-color: #cccccc;
+    background-color: #23d997;
     margin-bottom: 3rem;
   }
 
@@ -57,4 +87,32 @@ const Movie = styled.div`
     object-fit: cover;
   }
 `;
+
+const Hide = styled.div`
+  overflow: hidden;
+`;
+
+// fRAME Animation
+const Frame1 = styled(motion.div)`
+  position: fixed;
+  left: 0;
+  top: 10%;
+  width: 100%;
+  height: 100vh;
+  background: #fffebf;
+  z-index: 2;
+`;
+
+const Frame2 = styled(Frame1)`
+  background: #ff8efb;
+`;
+
+const Frame3 = styled(Frame1)`
+  background: #8ed2ff;
+`;
+
+const Frame4 = styled(Frame1)`
+  background: #8effa0;
+`;
+
 export default OurWork;
